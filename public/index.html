@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light only">
+    <title>视频播放页</title>
+    <style>
+        body {
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        #dplayer {
+            width: 100svw;
+            height: 100svh;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="dplayer"></div>
+    <script src="/npm/dplayer/DPlayer.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const host = window.location.host;
+        const path = urlParams.get('path');
+        const dp = new DPlayer({
+            container: document.getElementById('dplayer'),
+            video: {
+                url: 'https://' + host + '/' + path,
+            },
+        });
+    </script>
+</body>
+
+</html>
